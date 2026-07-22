@@ -1,0 +1,76 @@
+<svg viewBox="0 0 1200 700" xmlns="http://www.w3.org/2000/svg" font-family="IBM Plex Mono, monospace">
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#B9C2D0"/>
+    </marker>
+  </defs>
+  <rect x="0" y="0" width="1200" height="700" fill="#0B1220"/>
+
+  <!-- Title -->
+  <text x="30" y="36" fill="#EDEFF3" font-size="20" font-weight="700">Strait Watch — System Architecture</text>
+  <text x="30" y="58" fill="#B9C2D0" font-size="12">Mock ingestion in this prototype · same interfaces used by production connectors</text>
+
+  <!-- Layer 1: Ingestion -->
+  <rect x="30" y="90" width="1140" height="90" rx="10" fill="#101A2E" stroke="#2A3F58"/>
+  <text x="50" y="112" fill="#FF9558" font-size="13" font-weight="700">DATA INGESTION LAYER (mocked here; real connectors slot in unchanged)</text>
+  <g font-size="11" fill="#EDEFF3">
+    <rect x="50" y="126" width="200" height="40" rx="6" fill="#16223A" stroke="#3C5876"/><text x="60" y="150">AIS Vessel Tracking (Spire/MarineTraffic)</text>
+    <rect x="270" y="126" width="200" height="40" rx="6" fill="#16223A" stroke="#3C5876"/><text x="280" y="150">News / GDELT Signal Extraction</text>
+    <rect x="490" y="126" width="200" height="40" rx="6" fill="#16223A" stroke="#3C5876"/><text x="500" y="150">Sanctions Registries (OFAC/UN)</text>
+    <rect x="710" y="126" width="200" height="40" rx="6" fill="#16223A" stroke="#3C5876"/><text x="720" y="150">Commodity Price Feeds</text>
+    <rect x="930" y="126" width="220" height="40" rx="6" fill="#16223A" stroke="#3C5876"/><text x="940" y="150">Port / Refinery ERP Data</text>
+  </g>
+
+  <line x1="600" y1="180" x2="600" y2="210" stroke="#B9C2D0" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Layer 2: Agent layer -->
+  <rect x="30" y="215" width="1140" height="150" rx="10" fill="#101A2E" stroke="#2A3F58"/>
+  <text x="50" y="238" fill="#FF9558" font-size="13" font-weight="700">AGENTIC INTELLIGENCE LAYER (this repo)</text>
+  <g font-size="11" fill="#EDEFF3">
+    <rect x="50" y="252" width="200" height="95" rx="6" fill="#16223A" stroke="#3C5876"/>
+    <text x="60" y="270" font-weight="700">Geopolitical Risk</text><text x="60" y="284">Intelligence Agent</text>
+    <text x="60" y="302" fill="#B9C2D0">weighted composite</text><text x="60" y="315" fill="#B9C2D0">score per corridor</text>
+
+    <rect x="270" y="252" width="200" height="95" rx="6" fill="#16223A" stroke="#3C5876"/>
+    <text x="280" y="270" font-weight="700">Disruption Scenario</text><text x="280" y="284">Modeller</text>
+    <text x="280" y="302" fill="#B9C2D0">gap → cascade →</text><text x="280" y="315" fill="#B9C2D0">price/GDP/SPR impact</text>
+
+    <rect x="490" y="252" width="200" height="95" rx="6" fill="#16223A" stroke="#3C5876"/>
+    <text x="500" y="270" font-weight="700">Adaptive Procurement</text><text x="500" y="284">Orchestrator</text>
+    <text x="500" y="302" fill="#B9C2D0">multi-criteria rank</text><text x="500" y="315" fill="#B9C2D0">+ greedy allocation</text>
+
+    <rect x="710" y="252" width="200" height="95" rx="6" fill="#16223A" stroke="#3C5876"/>
+    <text x="720" y="270" font-weight="700">Strategic Reserve</text><text x="720" y="284">Optimisation Agent</text>
+    <text x="720" y="302" fill="#B9C2D0">smoothed drawdown +</text><text x="720" y="315" fill="#B9C2D0">reorder trigger</text>
+
+    <rect x="930" y="252" width="220" height="95" rx="6" fill="#16223A" stroke="#3C5876"/>
+    <text x="940" y="270" font-weight="700">Supply Chain</text><text x="940" y="284">Digital Twin</text>
+    <text x="940" y="302" fill="#B9C2D0">geospatial corridor +</text><text x="940" y="315" fill="#B9C2D0">refinery model</text>
+  </g>
+
+  <line x1="600" y1="365" x2="600" y2="400" stroke="#B9C2D0" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Layer 3: App shell -->
+  <rect x="30" y="405" width="1140" height="90" rx="10" fill="#101A2E" stroke="#2A3F58"/>
+  <text x="50" y="428" fill="#FF9558" font-size="13" font-weight="700">APPLICATION SHELL</text>
+  <g font-size="11" fill="#EDEFF3">
+    <rect x="50" y="441" width="260" height="40" rx="6" fill="#16223A" stroke="#3C5876"/><text x="60" y="465">State store (App.state) — signals, scenario, alerts</text>
+    <rect x="330" y="441" width="260" height="40" rx="6" fill="#16223A" stroke="#3C5876"/><text x="340" y="465">Router / view renderer (App.navigate)</text>
+    <rect x="610" y="441" width="260" height="40" rx="6" fill="#16223A" stroke="#3C5876"/><text x="620" y="465">Dependency-free SVG chart layer</text>
+    <rect x="890" y="441" width="260" height="40" rx="6" fill="#16223A" stroke="#3C5876"/><text x="900" y="465">Live signal simulator (3.5s tick)</text>
+  </g>
+
+  <line x1="600" y1="495" x2="600" y2="530" stroke="#B9C2D0" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Layer 4: UX -->
+  <rect x="30" y="535" width="1140" height="120" rx="10" fill="#101A2E" stroke="#2A3F58"/>
+  <text x="50" y="558" fill="#FF9558" font-size="13" font-weight="700">EXPERIENCE LAYER — six focused views behind one command center header</text>
+  <g font-size="10.5" fill="#EDEFF3">
+    <rect x="50" y="572" width="160" height="60" rx="6" fill="#16223A" stroke="#3C5876"/><text x="60" y="605">Command<tspan x="60" dy="14">Center</tspan></text>
+    <rect x="225" y="572" width="160" height="60" rx="6" fill="#16223A" stroke="#3C5876"/><text x="235" y="605">Risk<tspan x="235" dy="14">Intelligence</tspan></text>
+    <rect x="400" y="572" width="160" height="60" rx="6" fill="#16223A" stroke="#3C5876"/><text x="410" y="605">Scenario<tspan x="410" dy="14">Simulator</tspan></text>
+    <rect x="575" y="572" width="160" height="60" rx="6" fill="#16223A" stroke="#3C5876"/><text x="585" y="605">Procurement<tspan x="585" dy="14">Orchestrator</tspan></text>
+    <rect x="750" y="572" width="160" height="60" rx="6" fill="#16223A" stroke="#3C5876"/><text x="760" y="605">Reserve<tspan x="760" dy="14">Optimizer</tspan></text>
+    <rect x="925" y="572" width="160" height="60" rx="6" fill="#16223A" stroke="#3C5876"/><text x="935" y="605">Digital<tspan x="935" dy="14">Twin</tspan></text>
+  </g>
+</svg>
